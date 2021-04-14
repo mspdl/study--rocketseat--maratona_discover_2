@@ -1,10 +1,14 @@
+const SERVER_PORT = 3333
 const express = require("express")
 const server = express()
 const routes = require("./routes")
-const SERVER_PORT = 3333
+const path = require("path")
 
 // Using the template engine
 server.set('view engine', 'ejs')
+
+// Change view's path
+server.set('views', path.join(__dirname, 'views'))
 
 // Enable static files
 server.use(express.static("public"))
